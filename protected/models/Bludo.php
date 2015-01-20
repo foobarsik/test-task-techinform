@@ -122,20 +122,12 @@ class Bludo extends CActiveRecord {
 
     public function getDishList($category = '', $search = '') {
         $criteria = new CDbCriteria;
-
-        // dishes by category
-        // maybe I need to identify these like another function
         if (strlen($category) > 0) {
-            //$criteria->condition = self::CATEGORY . ' = :ctgry';
-            //$criteria->params = array(':ctgry' => $category);
             $this->filterByCategory($category);
         }
-
-        // condition from user search
         if (strlen($search) > 0) {
             $criteria->addSearchCondition('bludoname', $search, true, 'AND');
         }
-
         $criteria->order = self::CATEGORY;
         return($this->findAll($criteria));
     }
