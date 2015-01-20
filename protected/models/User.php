@@ -113,9 +113,6 @@ class User extends CActiveRecord {
     }
 
     public function beforeSave() {
-//        if ($this->isNewRecord) {
-//            $this->role = user;
-//        }
         $this->pass = md5('dfvgbh8183' . $this->pass); //тут могла бы быть динамическая соль, а лучше crypt()
         return parent::beforeSave();
     }
