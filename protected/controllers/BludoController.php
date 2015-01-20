@@ -48,7 +48,6 @@ class BludoController extends Controller {
         $model = Bludo::model()->getDishList(Yii::app()->request->getParam('category'), $string);
  
         // формируем массив категорий для разбивки вывода блюд по категориям  
-        // перенести в модель?
         $categorys = Bludo::model()->objToArray($model, Bludo::CATEGORY);
         sort($categorys);
         $count = count($categorys);
